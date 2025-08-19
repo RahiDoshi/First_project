@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahi - Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: rgb(0, 0, 33);
+            color: white;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            background: rgb(0, 0, 50);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .left {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff00ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff00ff;
+        }
+
+        section {
+            padding: 80px 10%;
+            min-height: 90vh;
+        }
+
+        /* Home Section */
+        .firstSection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 120px;
+            gap: 50px;
+            min-height: 100vh;
+        }
+
+        .leftSection {
+            font-size: 2.8rem;
+            line-height: 1.4;
+            max-width: 600px;
+        }
+
+        .leftSection span {
+            color: #ff00ff;
+        }
+
+        .rightSection img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        /* About Section */
+        #about {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .about-box h1 {
+            font-size: 2.8rem;
+            color: #ff00ff;
+            margin-bottom: 20px;
+        }
+
+        .about-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .about-highlights {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .about-highlights .card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .about-highlights .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 0, 255, 0.2);
+        }
+
+        .about-illustration {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Skills Section */
+        #skills {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .skills-illustration {
+            flex: 1;
+            text-align: center;
+        }
+
+        .skills-content {
+            flex: 1;
+        }
+
+        .skills-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff00ff;
+        }
+
+        .skill-card {
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .bar {
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 12px;
+            margin-top: 8px;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #ff00ff, #00e5ff);
+            border-radius: 8px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Experience Section */
+        #experience {
+            min-height: 80vh;
+            /* reduced height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* align content from top */
+            padding: 70px 10%;
+            /* reduced padding */
+        }
+
+        #experience h1 {
+            font-size: 2.5rem;
+            /* slightly smaller */
+            color: #ff00ff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .exp-card {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 25px;
+            /* reduced */
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 0, 255, 0.15);
+        }
+
+        .exp-card h2 {
+            font-size: 1.7rem;
+            /* smaller */
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .exp-card p {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .exp-card ul {
+            padding-left: 25px;
+            /* pushes bullets away from card edge */
+            margin-top: 10px;
+        }
+
+        .exp-card ul li {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
+            /* spacing between points */
+        }
+
+        /* Education Section */
+        #education {
+            min-height: 80vh;
+            /* reduced height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 70px 10%;
+            /* reduced padding */
+        }
+
+        #education h1 {
+            font-size: 2.5rem;
+            color: #ff00ff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .edu-card {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 25px;
+            /* reduced */
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-6px);
+            background: rgba(0, 229, 255, 0.15);
+        }
+
+        .edu-card h2 {
+            font-size: 1.7rem;
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .edu-card p {
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        #contact h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff00ff;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            margin: auto;
+            font-size: 1.2rem;
+        }
+
+        .contact-item {
+            margin: 15px 0;
+        }
+
+        .contact-item a {
+            color: #00e5ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #ff00ff;
+        }
+
+        @media (max-width: 900px) {
+
+            .firstSection,
+            #about,
+            #skills {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .rightSection img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        /* Resume Card Styling */
+        .resume-card {
+            background: rgba(0, 229, 255, 0.15);
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+        }
+
+        .resume-card:hover {
+            background: rgba(0, 229, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* Projects Section */
+        #projects {
+            min-height: 100vh;
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        #projects h1 {
+            font-size: 3rem;
+            color: #ff00ff;
+            margin-bottom: 50px;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 0, 255, 0.15);
+        }
+
+        .project-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: #00e5ff;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #ff00ff, #00e5ff);
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .project-card a:hover {
+            background: linear-gradient(90deg, #00e5ff, #ff00ff);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="left">Rahi's Portfolio</div>
+        <div class="right">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home -->
+        <section id="home" class="firstSection">
+            <div class="leftSection">
+                Hi, I am <span>Rahi Doshi</span> 👋
+                <div>and I am a passionate</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="image.png.jpg" alt="Profile picture">
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="about-box">
+                <h1>About Me</h1>
+                <p>
+                    I am a first-year <b>AI & ML student</b> at D. J. Sanghvi College of Engineering with a strong
+                    interest in technology, problem-solving, and continuous learning.
+                    I’m passionate about exploring software development, artificial intelligence, and data-driven
+                    solutions.
+                </p>
+                <div class="about-highlights">
+                    <!-- ✅ Resume Card added here -->
+                    <a href="rahi.pdf.pdf" target="_blank" class="resume-card">📄 View Resume</a>
+
+                    <div class="card">🎓 B.Tech AIML Student</div>
+                    <div class="card">💡 Tech Enthusiast</div>
+                    <div class="card">🤝 Team Player</div>
+                    <div class="card">🚀 Quick Learner</div>
+                </div>
+            </div>
+            <div class="about-illustration">
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_tno6cg2w.json"
+                    background="transparent" speed="1" style="width: 350px; height: 350px;" loop autoplay>
+                </lottie-player>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="skills-illustration">
+                <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_4kx2q32n.json"
+                    background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+                </lottie-player>
+            </div>
+            <div class="skills-content">
+                <h1>Skills</h1>
+                <div class="skill-card">💻 Programming: C, C++, Java
+                    <div class="bar"><span data-skill="80"></span></div>
+                </div>
+                <div class="skill-card">🌐 Web Development: HTML, CSS
+                    <div class="bar"><span data-skill="70"></span></div>
+                </div>
+                <div class="skill-card">🤖 AI/ML (Beginner)
+                    <div class="bar"><span data-skill="50"></span></div>
+                </div>
+                <div class="skill-card">🧩 Problem Solving & Teamwork
+                    <div class="bar"><span data-skill="90"></span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <h1>Experience</h1>
+            <div class="exp-card">
+                <h2>🚀 E-Summit (E-Cell, 2025)</h2>
+                <p><b>Events Committee</b></p>
+                <ul>
+                    <li>Helped organize flagship events and manage logistics.</li>
+                    <li>Coordinated with professionals and judges for competitions.</li>
+                    <li>Ensured smooth execution for 50+ teams.</li>
+                </ul>
+            </div>
+            <div class="exp-card">
+                <h2>🎤 TEDx DJSCE (2025)</h2>
+                <p><b>Volunteer</b></p>
+                <ul>
+                    <li>Worked with the team to ensure smooth event execution.</li>
+                    <li>Maintained professional environment for speakers and attendees.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h1>Education</h1>
+            <div class="edu-card">
+                <h2>2024–2028</h2>
+                <p>B.Tech in AIML, DJSCE | CGPA: 9.31</p>
+            </div>
+            <div class="edu-card">
+                <h2>2022–2024</h2>
+                <p>PACE Junior College | Grade: 80%</p>
+            </div>
+            <div class="edu-card">
+                <h2>2022</h2>
+                <p>M.K.V.V.I.V School | Grade: 97%</p>
+            </div>
+        </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h1>Projects</h1>
+            <div class="projects-container">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <h2>Project 1</h2>
+                    <p>Short description about this project will go here...</p>
+                    <a href="#" target="_blank">View Project</a>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <h2>Project 2</h2>
+                    <p>Short description about this project will go here...</p>
+                    <a href="#" target="_blank">View Project</a>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <h2>Project 3</h2>
+                    <p>Short description about this project will go here...</p>
+                    <a href="#" target="_blank">View Project</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact -->
+        <section id="contact">
+            <h1>Contact Me</h1>
+            <div class="contact-box">
+                <div class="contact-item">📧 Email: <a href="mailto:doshirahi016@gmail.com">doshirahi016@gmail.com</a>
+                </div>
+                <div class="contact-item">📱 Phone: <a href="tel:+919004987910">+919004987910</a></div>
+                <div class="contact-item">💼 LinkedIn: <a href="https://www.linkedin.com/in/your-linkedin"
+                        target="_blank">linkedin.com/in/your-linkedin</a></div>
+                <div class="contact-item">🐙 GitHub: <a href="https://github.com/your-github"
+                        target="_blank">github.com/your-github</a></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'AI/ML Student', 'Tech Enthusiast'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+    </script>
+
+    <!-- Skill bar animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const skillBars = document.querySelectorAll(".bar span");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const value = entry.target.getAttribute("data-skill");
+                        entry.target.style.width = value + "%";
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            skillBars.forEach(bar => observer.observe(bar));
+        });
+    </script>
+</body>
+
+</html>
